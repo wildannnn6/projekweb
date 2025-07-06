@@ -1,7 +1,7 @@
 <?php
 include 'c:\xampp\htdocs\projectweb\control\koneksi.php';
 
-
+    
     $nama = $_POST['namamakanan'];
     $harga = $_POST['harga'];
     $gambar = $_POST['gambar'];
