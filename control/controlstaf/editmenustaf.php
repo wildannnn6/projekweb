@@ -159,7 +159,7 @@ $sql = mysqli_query($koneksi, $query);
                 </div>
                 <div class="form-actions">
                     <button type="submit" class="simple-button">Edit Menu</button>
-                    <button type="reset" class="simple-button">Batal</button>
+                    <button type="reset" class="simple-button">Reset</button>
                 </div>
 
             </form>

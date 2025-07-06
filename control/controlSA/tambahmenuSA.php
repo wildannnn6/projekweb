@@ -152,7 +152,7 @@ $sql = mysqli_query($koneksi, $query);
 <br>
             <div class="form-actions">
                 <button type="submit" class="simple-button">Tambahkan</button>
-                <button type="reset" class="simple-button">Batal</button>
+                <button type="reset" class="simple-button">Reset</button>
             </div>
 
         </form>

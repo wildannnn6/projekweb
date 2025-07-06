@@ -17,7 +17,7 @@ include '../control/koneksi.php';
         <ul>
             <li><a href="../view/indexSA.php">Beranda</a></li>
             <li><a href="menuSA.php">Menu</a></li>
-            <li><a href="#">pesanan</a></li>
+            <li><a href="#">acount</a></li>
             <li><a href="#">Logout</a></li>
         </ul>
     </nav>
