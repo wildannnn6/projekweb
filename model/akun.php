@@ -1,4 +1,11 @@
 <?php
+session_start();
+
+if ( !isset($_SESSION["login"])) {
+    header("location:/projectweb/login.php");
+    exit;
+}
+
 include '../control/koneksi.php';
 ?>
      <?php $query = "SELECT * FROM users";

@@ -1,6 +1,13 @@
 <link rel="stylesheet" href="../view/style.css">
 
 <?php
+session_start();
+
+if ( !isset($_SESSION["login"])) {
+    header("location:/projectweb/login.php");
+    exit;
+}
+
 include '../control/koneksi.php';
 
 $query = "SELECT * FROM makanan";
@@ -20,7 +27,7 @@ $sql = mysqli_query($koneksi, $query);
         <li><a href="#">Logout</a></li>
     </ul>
 </nav>
-<form action="insertpes.php" method="post"></form>
+
 <table>
     <tr>
         <th>nama</th>
@@ -30,31 +37,33 @@ $sql = mysqli_query($koneksi, $query);
         <th></th>
     </tr>
 
-    <?php
+    <form action="/projectweb/control/controluser/insertpesananuser.php" method="post">
 
-    while ($hasil = mysqli_fetch_assoc($sql)) { ?>
+        <?php
 
+        while ($hasil = mysqli_fetch_assoc($sql)) { ?>
 
-        <tr>
-            <td name="nama">
-                <?php echo $hasil['nama']; ?>
-            </td>
+                
+            <tr>
+                <td name="nama">
+                    <?php echo $hasil['nama']; ?>
+                </td>
 
-            <td name="harga">
-                <?php echo $hasil['harga']; ?>
-            </td>
+                <td name="harga">
+                    <?php echo $hasil['harga']; ?>
+                </td>
 
-            <td>
-                <img src="<?php echo $hasil['gambar']; ?>">
-            </td>
+                <td name="gambar">
+                    <img src="<?php echo $hasil['gambar']; ?>">
+                </td>
 
-            <td>
-                <?php echo $hasil['deskripsi']; ?>
-            </td>
-            <td>
-                <a href="pesanan.php?kode=<?php echo $hasil['id_makanan'] ?>" class="simple-button">+</a>
-            </td>
-        </tr>
-    <?php } ?>
+                <td name="deskripsi">
+                    <?php echo $hasil['deskripsi']; ?>
+                </td>
+                <td>
+                    <a href="pesanan.php?kode=<?php echo $hasil['id_makanan'] ?>" class="simple-button">+</a>
+                </td>
+            </tr>
+        <?php } ?>
+    </form>
 </table>
-</form>

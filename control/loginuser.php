@@ -1,4 +1,12 @@
 <?php
+
+session_start();
+
+if (isset($_SESSION ["login"])){
+            header(header: "location:/projectweb/view/indexSA.php");
+            exit;
+        }
+
 include 'koneksi.php';
 
 if (isset($_POST['login'])) {
@@ -14,7 +22,10 @@ if (isset($_POST['login'])) {
 
         if (password_verify($password, $row["password_user"])) {
 
-            header("location:/projectweb/view/indexSA.php");
+            $_SESSION["login"] = true;
+
+
+            header(header: "location:/projectweb/view/indexSA.php");
 
         } else {
             echo "<script>

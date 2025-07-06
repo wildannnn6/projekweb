@@ -1,4 +1,10 @@
 <?php
+session_start();
+
+if ( !isset($_SESSION["login"])) {
+    header("location:/projectweb/login.php");
+    exit;
+}
 
 include '../control/koneksi.php';
 
@@ -30,7 +36,7 @@ $sql = mysqli_query($koneksi, $query);
             <li><a href="#">Beranda</a></li>
             <li><a href="../model/menuSA.php">Menu</a></li>
             <li><a href="../model/akun.php">acount</a></li>
-            <li><a href="#">Logout</a></li>
+            <li><a href="/projectweb/control/logout.php">Logout</a></li>
         </ul>
     </nav>
 

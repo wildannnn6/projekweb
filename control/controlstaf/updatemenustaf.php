@@ -1,4 +1,11 @@
 <?php
+session_start();
+
+if ( !isset($_SESSION["login"])) {
+    header("location:/projectweb/login.php");
+    exit;
+}
+
 include 'c:\xampp\htdocs\projectweb\control\koneksi.php';
 
     $id_makanan = $_POST['id_makanan'];
